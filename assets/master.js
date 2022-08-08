@@ -188,19 +188,20 @@ _selectDiv[0].appendChild(document.createElement('button')).innerHTML = 'Enter y
 _selectDiv[0].appendChild(document.createElement('button')).innerHTML = 'Enter your <strong>HEIGHT</strong> (cm)'
 
 let _weightArgu = ''
+let _alert = "DON'T LEAVE THE INPUTS EMPTY"
 function _weightFunc() {
-    _weightArgu = prompt('Your Weight')
+    _weightArgu = prompt('Your Weight in kg:')
     if (_weightArgu === null || _weightArgu === '') {
-        alert("DON'T LEAVE THE INPUTS EMPTY")
+        alert(_alert)
         return false
     }
 }
 
 let _heightArgu = ''
 function _heightFunc() {
-    _heightArgu = prompt('Your Height')
+    _heightArgu = prompt('Your Height in cm:')
     if (_heightArgu === null || _heightArgu === '') {
-        alert("DON'T LEAVE THE INPUTS EMPTY")
+        alert(_alert)
         return false
     }
 }
@@ -214,34 +215,34 @@ _selectDiv2[1].appendChild(document.createElement('button')).innerHTML = 'Calcul
 
 function _bmiFunc() {
     if (_weightArgu === null || _weightArgu === '' || _heightArgu === null || _heightArgu === '') {
-        alert("DON'T LEAVE THE INPUTS EMPTY")
+        alert(_alert)
         return false
     }
     let _result = (_weightArgu / (_heightArgu / 100) ** 2)
-    console.log(_result)
+    let _bmi = 'Your BMI is:    ' + _result + ',    which means    '
     if (_result < 16) {
-        alert(_result + '       Severe Thinness')
+        alert(_bmi + "'Severe Thinness'")
     }
     else if (16 <= _result && _result < 17) {
-        alert(_result + '       Moderate Thinness')
+        alert(_bmi + "'Moderate Thinness'")
     }
     else if (17 <= _result && _result < 18.5) {
-        alert(_result + '       Mild Thinness')
+        alert(_bmi + "'Mild Thinness'")
     }
     else if (18.5 <= _result && _result < 25) {
-        alert(_result + '       Normal Weight')
+        alert(_bmi + "'Normal Weight'")
     }
     else if (25 <= _result && _result < 30) {
-        alert(_result + '       Overweight (Pre-obese)')
+        alert(_bmi + "'Overweight (Pre-obese)'")
     }
     else if (30 <= _result && _result < 35) {
-        alert(_result + '       moderately obese')
+        alert(_bmi + "'moderately obese'")
     }
     else if (35 <= _result && _result < 40) {
-        alert(_result + '       severely obese')
+        alert(_bmi + "'severely obese'")
     }
     else if (40 <= _result) {
-        alert(_result + '       very severely obese')
+        alert(_bmi + "'very severely obese'")
     }
     else {
         alert('ERROR: INPUTS must be NUMBERS')
