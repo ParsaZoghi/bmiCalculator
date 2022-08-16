@@ -82,7 +82,7 @@ document.head.appendChild(document.createElement('style')).innerHTML = `
                     inset 0 0 6px 2px var(--color5);
         text-shadow: 0 0 4px var(--color5);
         letter-spacing: .7px;
-        transition: 0.3s;
+        transition: .3s;
         cursor: pointer;
         border: 2px solid var(--color5);
     }
@@ -159,7 +159,7 @@ document.head.appendChild(document.createElement('style')).innerHTML = `
     }
 
     main > section:nth-of-type(2) > a.website {
-        width: fit-content;
+        width: max-content;
         padding: 3px;
         display: flex;
         justify-content: center;
@@ -188,11 +188,11 @@ _selectDiv[0].appendChild(document.createElement('button')).innerHTML = 'Enter y
 _selectDiv[0].appendChild(document.createElement('button')).innerHTML = 'Enter your <strong>HEIGHT</strong> (cm)'
 
 let _weightArgu = ''
-let _alert = "DON'T LEAVE THE INPUTS EMPTY"
+let _warningAlert = "DON'T LEAVE THE INPUTS EMPTY"
 function _weightFunc() {
     _weightArgu = prompt('Your Weight in kg:')
     if (_weightArgu === null || _weightArgu === '') {
-        alert(_alert)
+        alert(_warningAlert)
         return false
     }
 }
@@ -201,7 +201,7 @@ let _heightArgu = ''
 function _heightFunc() {
     _heightArgu = prompt('Your Height in cm:')
     if (_heightArgu === null || _heightArgu === '') {
-        alert(_alert)
+        alert(_warningAlert)
         return false
     }
 }
@@ -215,11 +215,11 @@ _selectDiv2[1].appendChild(document.createElement('button')).innerHTML = 'Calcul
 
 function _bmiFunc() {
     if (_weightArgu === null || _weightArgu === '' || _heightArgu === null || _heightArgu === '') {
-        alert(_alert)
+        alert(_warningAlert)
         return false
     }
     let _result = (_weightArgu / (_heightArgu / 100) ** 2)
-    let _bmi = 'Your BMI is:    ' + _result + ',    which means    '
+    let _bmi = 'Your BMI is:    ' + _result.toFixed(2) + ',    which means    '
     if (_result < 16) {
         alert(_bmi + "'Severe Thinness'")
     }
